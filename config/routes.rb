@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-
+  get ":user_id/flats", to: "flats#owner_index", as: "owner_flats"
   get ":user_id/bookings", to: "bookings#index", as: "user_bookings"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
