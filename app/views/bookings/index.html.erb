@@ -1,16 +1,16 @@
-<div class="container my-4">
+<div class="container my-4 mx-auto">
 <h1 class="text-center my-4">Welcome <%= @user.email %></h1>
 
 <h2>Here are your bookings</h2>
-<div class="row ">
+<div class="row cards">
   <%  @bookings.each do |booking| %>
     <% flat = Flat.find(booking.flat_id)%>
 
-    <div class="card-trip col-sm-11 col-md-6 col-lg-4">
+    <div class="card-trip col-sm-10 col-md-6 col-lg-4">
       <img src="<%= flat.poster_url %>" />
-      <div class="card-trip-infos mb-3">
+      <div class="card-trip-infos">
           <h2><%= flat.name %></h2>
-          <p><b>Check-in : <%= booking.start_date %> // Check-out <%= booking.end_date %></b></p>
+          <p><b>Check-in : <%= booking.start_date %><br>Check-out <%= booking.end_date %></b></p>
           <p><%= flat.description %></p>
       </div>
     </div>
