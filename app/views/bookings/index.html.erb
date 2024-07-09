@@ -1,20 +1,30 @@
-<div class="container my-4 mx-auto">
+<div class="container my-5 mx-auto pb-5">
 <h1 class="text-center my-4">Welcome <%= @user.email %></h1>
 
-<h2>Here are your bookings</h2>
-<div class="row cards">
-  <%  @bookings.each do |booking| %>
-    <% flat = Flat.find(booking.flat_id)%>
-
-    <div class="card-trip col-sm-10 col-md-6 col-lg-4">
-      <img src="<%= flat.poster_url %>" />
-      <div class="card-trip-infos">
-          <h2><%= flat.name %></h2>
-          <p><b>Check-in : <%= booking.start_date %><br>Check-out <%= booking.end_date %></b></p>
-          <p><%= flat.description %></p>
-      </div>
+<div class="my-5">
+  <h2>Here are the bookings for your next trips:</h2>
+  <% if @bookings.empty? %>
+    <div class="bookings-block p-4 bg-light my-3">
+      <h5 class="text-center mt-3 text-warning">You have nothing booked for your trips yet</h5>
+    </div>
+  <% else %>
+    <div class="cards px-3 my-3">
+      <%  @bookings.each do |booking| %>
+        <%= render "user_booking", booking: booking %>
+      <% end %>
     </div>
   <% end %>
+</div>
+
+<div class="my-5">
+  <% unless @my_flats.empty? %>
+  <h2>Your flats are requested for these dates:</h2>
+  <div class="mt-4">
+    <% @my_flats.each do |my_flat| %>
+      <%= render "owner_flats", my_flat: my_flat %>
+    <% end %>
+  </div>
+<% end %>
 </div>
 
 </div>
