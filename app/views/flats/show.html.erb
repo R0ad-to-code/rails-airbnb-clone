@@ -1,0 +1,33 @@
+<div class="container py-5 ps-5">
+  <div class="row">
+    <div class="col-md-4 py-3">
+      <img
+        src="<%= @flat.poster_url %>"
+        class="img-responsive rounded"
+        alt="Photo of <%= @flat.name %>"
+      />
+    </div>
+    <div class="col-md-8 py-3">
+      <h2 class="fw-bold"><%= @flat.name %></h2>
+      <p class="text-muted"><%= @flat.address %></p>
+      <h3 class="mt-4">€ <%= @flat.price %></h3>
+      <p class="mb-4">/ night </p>
+      <p class="mb-4">
+        <%= @flat.description %>
+      </p>
+    </div>
+    <div class="col-md-4 mb-4 py-5">
+      <h4>Book <%= @flat.name %> now</h4>
+      <%= simple_form_for [@flat, @booking] do |f| %>
+        <%= f.input :start_date, as: :date %>
+        <%= f.input :end_date, as: :date %>
+        <%= f.submit "Book now", class: "btn btn-success" %>
+      <% end %>
+    </div>
+    <div>
+      <button class="btn btn-outline-secondary btn-sm" type="button">
+        Add to favorites
+      </button>
+    </div>
+  </div>
+</div>

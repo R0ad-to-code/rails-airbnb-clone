@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :flats, only: [:index, :show, :new]
+  resources :flats, only: [:index, :show, :new] do
+    resources :bookings, only: [:create]
+  end
 
 
   get ":user_id/bookings", to: "bookings#index", as: "user_bookings"

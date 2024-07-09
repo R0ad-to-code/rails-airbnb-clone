@@ -1,0 +1,22 @@
+.home-card-container {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 16px;
+  padding: 20px 55px;
+}
+
+.card-img-top {
+  border-radius: 5px;
+}
+
+.card-body {
+  margin: 0px;
+  padding: 5px 0;
+  line-height: 24px;
+  font-size: 14px;
+  color: rgb(59, 55, 55);
+}
+
+.description {
+  margin: 0px;
+}

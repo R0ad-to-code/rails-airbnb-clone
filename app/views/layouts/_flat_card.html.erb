@@ -1,16 +1,9 @@
-<div class="card mb-3 shadow-sm">
-  <%= image_tag(@flat.image_url, alt: "Flat image", class: "card-img-top") %>
+<div class="mb-3 flat-card">
+  <%= image_tag(flat.poster_url, alt: "Flat image", class: "card-img-top") %>
   <div class="card-body">
-    <div class="d-flex justify-content-between align-items-center">
-      <h5 class="card-title"><%= @flat.title %></h5>
-    </div>
-    <p class="card-text mb-1"><%= @flat.city %>, <%= @flat.country %></p>
-    <div class="d-flex justify-content-between align-items-center">
-      <span class="distance"><%= "#{@flat.distance} kilometers away" %></span>
-    </div>
-    <div class="d-flex justify-content-between align-items-center mt-2">
-      <span class="text-muted"><i class="bi bi-calendar-event-fill"></i> <%= @flat.available_dates %></span>
-      <span class="price">€<%= @flat.price %>/night</span>
-    </div>
+    <h5 class="card-title"><%= flat.name %></h5>
+    <p class="card-text mb-1"><%= flat.address %></p>
+    <p class="description"><%= "#{flat.description}" %></p>
+    <span class="price"><b>€<%= flat.price %></b>/night</span>
   </div>
 </div>
