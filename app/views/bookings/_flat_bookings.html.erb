@@ -1,0 +1,18 @@
+<% user = User.find(booking.user_id) %>
+
+<div class="card-product m-2 border">
+  <img src="<%= my_flat.poster_url %>" />
+  <div class="card-product-infos">
+    <p><%= user.email %> wants to book your flat during <%= (booking.end_date - booking.start_date).to_i %> day(s):</p>
+    <p>From : <b><%= booking.start_date %></b> to : <b><%= booking.end_date %></b> </p>
+    <h5>Status : <%= booking.status %></h5>
+  </div>
+  <div class="status-change">
+    <% if booking.status == "pending" %>
+      <button>Accept booking</button>
+      <button>Decline booking</button>
+    <% else %>
+      <button>Cancel booking</button>
+    <% end %>
+  </div>
+</div>
