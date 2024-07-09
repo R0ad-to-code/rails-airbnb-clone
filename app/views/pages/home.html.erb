@@ -1,4 +1,3 @@
-<%= render partial: "custom_navbar" %>
 <div class="row">
 <% @flats = [
     {
@@ -28,10 +27,8 @@
   ] %>
   <% @flats.each do |flat| %>
     <div class="col-md-4 mb-3">
-      <%= flat[:title] %>
-      <%= render partial: "/layouts/flat_card", flat: flat %>
+      <%#= flat[:title] %>
+      <%#= render partial: "/layouts/flat_card", flat: flat %>
     </div>
   <% end %>
 </div>
-
-<%= render partial: "footer" %>
