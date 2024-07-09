@@ -1,4 +1,5 @@
 class FlatsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
     @flats = Flat.all
   end
@@ -7,5 +8,4 @@ class FlatsController < ApplicationController
     @flat = Flat.find(params[:id])
     @booking = Booking.new
   end
-
 end

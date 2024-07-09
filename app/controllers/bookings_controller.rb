@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+  def index
+    @user = User.find(params["user_id"])
+    @bookings = Booking.where(user_id: params["user_id"])
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.flat = Flat.find(params[:flat_id])
