@@ -8,11 +8,11 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-user1 = User.create!(email: "test1@email.com", password: "test1@email.com")
-user2 = User.create!(email: "test2@email.com", password: "test2@email.com")
-user3 = User.create!(email: "test3@email.com", password: "test3@email.com")
-user4 = User.create!(email: "test4@email.com", password: "test4@email.com")
-user5 = User.create!(email: "test5@email.com", password: "test5@email.com")
+user1 = User.create!(email: "test1@email.com", password: "test1@email.com", owner?: true)
+user2 = User.create!(email: "test2@email.com", password: "test2@email.com", owner?: true)
+user3 = User.create!(email: "test3@email.com", password: "test3@email.com", owner?: false)
+user4 = User.create!(email: "test4@email.com", password: "test4@email.com", owner?: false)
+user5 = User.create!(email: "test5@email.com", password: "test5@email.com", owner?: true)
 
 flat1 = Flat.create!(name: "Home in Paris", address: "Paris", price: 100, description: "Discover my penthouse in the center of Paris", user_id: 5, poster_url: "https://picsum.photos/200")
 flat2 = Flat.create!(name: "Home in Berlin", address: "Berlin", price: 100, description: "Discover my penthouse in the center of Berlin", user_id: 1, poster_url: "https://picsum.photos/200")
