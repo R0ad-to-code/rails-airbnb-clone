@@ -13,6 +13,7 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= render "shared/flashes" %>
     <%= render partial: "/shared/custom_navbar" %>
     <%= render partial: "/shared/footer" %>
     <%= yield %>
