@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
   def index
-    @user = User.find(params["user_id"])
-    @bookings = Booking.where(user_id: params["user_id"])
-    @my_flats = Flat.where(user_id: params["user_id"])
+    @user = current_user
+    @bookings = current_user.bookings
+    @my_flats = current_user.flats
   end
 
   def create
@@ -14,6 +14,13 @@ class BookingsController < ApplicationController
     else
       redirect_to flats_path
     end
+  end
+
+  def update
+    booking = Booking.find(params["id"])
+    booking.status = params["status"]
+    booking.save!
+    redirect_to current_user.bookings
   end
 
   private
