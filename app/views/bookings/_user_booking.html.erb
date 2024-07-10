@@ -1,0 +1,12 @@
+<% flat = Flat.find(booking.flat_id)%>
+
+<div class="card-trip col-sm-10 col-md-5 col-lg-3 m-2">
+  <img src="<%= flat.poster_url %>" />
+  <div class="card-trip-infos">
+      <h2><%= flat.name %></h2>
+      <p>Status : <%= booking.status %></p>
+      <p><b>Check-in : <%= booking.start_date %><br>Check-out <%= booking.end_date %></b></p>
+      <p><%= flat.description %></p>
+      <%= link_to "See the flat", flat_path(flat) %>
+  </div>
+</div>
