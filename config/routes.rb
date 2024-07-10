@@ -6,8 +6,12 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-  get ":user_id/flats", to: "flats#owner_index", as: "owner_flats"
-  get ":user_id/bookings", to: "bookings#index", as: "user_bookings"
+  resources :bookings, only: [:update]
+
+  get "bookings", to: "bookings#index", as: "user_bookings"
+
+  get "flats", to: "flats#owner_index", as: "owner_flats"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
