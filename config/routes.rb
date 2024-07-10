@@ -2,14 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :flats, only: [:index, :show, :new, :create] do
+  resources :flats, only: [:show, :new, :create] do
     resources :bookings, only: [:create]
   end
 
   resources :bookings, only: [:update]
 
   get "bookings", to: "bookings#index", as: "user_bookings"
-
   get "flats", to: "flats#owner_index", as: "owner_flats"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -21,8 +21,8 @@ class FlatsController < ApplicationController
   end
 
   def owner_index
-    @user = User.find(params["user_id"])
-    @flats = Flat.where(user_id: params["user_id"])
+    @user = current_user
+    @flats = current_user.flats
   #if the current user is an owner
   #get all the flats of this owner and display them in a list
   end
