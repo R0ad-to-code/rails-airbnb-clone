@@ -1,15 +1,20 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  position:relative;
-  width: 100%;
-  top: 0;
+.navbar {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-brand {
+  display: flex;
+  align-items: center;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.logo-image {
+  height: 40px;
+  width: auto;
+}
+
+.navbar h2 {
+  margin-bottom: 0;
+  margin-left: 0px;
+  font-size: 1.5rem;
 }

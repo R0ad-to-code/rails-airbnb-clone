@@ -1,43 +1,52 @@
-<div class="container py-5 ps-5">
-  <div class="row">
-    <div class="col-md-4 py-3">
+<div class="flat-card-container">
+  <div class="flat">
+    <div>
       <img
         src="<%= @flat.poster_url %>"
-        class="img-responsive rounded"
+        class="flat-img-left"
         alt="Photo of <%= @flat.name %>"
       />
     </div>
-    <div class="col-md-6 py-3">
-      <h2 class="fw-bold"><%= @flat.name %></h2>
-      <p class="text-muted"><%= @flat.address %></p>
-      <h3 class="mt-4">€ <%= @flat.price %></h3>
-      <p class="mb-4">/ night </p>
-      <p class="mb-4">
-        <%= @flat.description %>
-      </p>
+    <div class="flat-body">
+      <div>
+        <br>
+        <h2><%= @flat.name %></h2>
+        <p><%= @flat.address %></p>
+        <h3>€ <%= @flat.price %></h3>
+        <p>/ night </p>
+        <p>
+          <%= @flat.description %>
+        </p>
+        <br>
+      </div>
+      <div>
+        <a class="app-button" href="#book_module">
+          📅 Choose a date
+        </a>
+      </div>
+      <br>
+      <div>
+        <a class="app-button-secondary" href="#">
+          🩶 Add to wishlist
+        </a>
+      </div>
     </div>
-    <div class="col-md-2 mb-4 py-2">
-      <a class="btn btn-success btn-sm my-2 text-white" type="button" href="#book_module">
-        📅 Choose a date
-      </a>
-      <button class="btn btn-secondary btn-sm my-2" type="button">
-        🤍 Add to wishlist
-      </button>
-    </div>
-    <div class="col-md-4 mb-4 py-5 bg-white box-shadow">
+    <div class="new-flat-form">
       <h4  id="book_module">Select a date and book</h4>
       <%= simple_form_for [@flat, @booking] do |f| %>
         <%= f.input :start_date, as: :date %>
         <%= f.input :end_date, as: :date %>
-        <%= f.submit "Book now", class: "btn btn-success text-light" %>
+        <%= f.submit "Book now", class: "app-button" %>
       <% end %>
     </div>
-  </div>
-  <div class="my-5"></div>
+    </div>
 </div>
+
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+
+<div class="py-5"></div>
