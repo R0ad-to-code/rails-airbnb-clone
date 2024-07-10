@@ -13,16 +13,19 @@
 }
 
 .flat-img-left {
-  border-radius: 5px;
   width: 100%;
+  box-shadow: $app-box-shadow;
+  border-radius: 8px;
 }
 
 .flat-body {
   margin: 0px;
-  padding: 5px 0;
+  padding: 10%;
   line-height: 24px;
   font-size: 14px;
   color: rgb(59, 55, 55);
+  box-shadow: $app-box-shadow;
+  border-radius: 8px;
 }
 
 .flat-description {

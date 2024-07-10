@@ -7,23 +7,29 @@
         alt="Photo of <%= @flat.name %>"
       />
     </div>
-    <div>
+    <div class="flat-body">
+      <div>
+        <br>
+        <h2><%= @flat.name %></h2>
+        <p><%= @flat.address %></p>
+        <h3>€ <%= @flat.price %></h3>
+        <p>/ night </p>
+        <p>
+          <%= @flat.description %>
+        </p>
+        <br>
+      </div>
       <div>
         <a class="app-button" href="#book_module">
           📅 Choose a date
         </a>
-        <button class="app-button-secondary" type="button">
-          🩶 Add to wishlist
-        </button>
       </div>
       <br>
-      <h2><%= @flat.name %></h2>
-      <p><%= @flat.address %></p>
-      <h3>€ <%= @flat.price %></h3>
-      <p>/ night </p>
-      <p>
-        <%= @flat.description %>
-      </p>
+      <div>
+        <a class="app-button-secondary" href="#">
+          🩶 Add to wishlist
+        </a>
+      </div>
     </div>
     <div class="new-flat-form">
       <h4  id="book_module">Select a date and book</h4>
