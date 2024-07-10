@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-  <div><%= link_to "#", class: "navbar-brand" do %>
+  <div><%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://www.creativefabrica.com/wp-content/uploads/2021/07/17/Bear-and-baby-cute-bears-logo-design-Graphics-14848876-1-1-580x387.jpg" %>
     <% end %>
     <h2>Bear BNB</h2>
@@ -22,9 +22,9 @@
             <%= image_tag "https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user.owner? %>
-                <%= link_to "Your flats", owner_flats_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Your flats", owner_flats_path, class: "dropdown-item" %>
               <% end %>
-                <%= link_to "Your bookings", user_bookings_path(current_user), class: "dropdown-item" %>
+                <%= link_to "Your bookings", user_bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
