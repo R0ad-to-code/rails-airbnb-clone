@@ -3,7 +3,7 @@
   place-items: center;
   width: 50%;
   margin: 18px auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: $app-box-shadow;
   padding: 25px;
   border-radius: 8px;
 }
