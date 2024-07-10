@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     booking = Booking.find(params["id"])
     booking.status = params["status"]
     booking.save!
-    redirect_to current_user.bookings
+    redirect_to user_bookings_path
   end
 
   private
