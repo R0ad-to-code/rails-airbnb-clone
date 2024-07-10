@@ -1,12 +1,12 @@
 .footer {
-  background: #393c57;
+  opacity: 0.95;
+  background: $border-color;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 50px;
   padding: 0px 50px;
-  //color: rgba(0, 0, 0, 0.3);
-  color: white;
+  color: $text-color;
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -18,10 +18,10 @@
 }
 
 .footer-links a {
-  color: white;
-  opacity: 0.15;
+  color: $text-color;
+  opacity: 0.75;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 16px;
   padding: 0px 10px;
 }
 
@@ -30,6 +30,6 @@
 }
 
 .footer .fa-mug-hot {
-  color: #000000;
+  color: $btn-bg-hover-color;
   font-size: x-large;
 }
