@@ -5,14 +5,14 @@
   font-weight: 150;
   text-align: center;
   text-decoration: none;
-  color: #dcdcdd;
-  background-color: #060566;
+  color: $btn-text-color;
+  background-color: $btn-bg-color;
   border: none;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.3s ease;
 
   &:hover {
-    background-color: #05033e;
+    background-color: $btn-bg-hover-color;
     transform: translateY(-2px);
   }
 
