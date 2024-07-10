@@ -14,7 +14,7 @@ class FlatsController < ApplicationController
 
     if @flat.save
       flash[:success] = "Flat created successfully!"
-      redirect_to flats_path # FIXME: - update the routes
+      redirect_to root_path
     else
       render :new
     end
