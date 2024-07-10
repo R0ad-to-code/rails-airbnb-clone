@@ -26,3 +26,32 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
   }
 }
+
+.app-button-secondary {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: 150;
+  text-align: center;
+  text-decoration: none;
+  color: #dcdcdd;
+  background-color: #060566;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: #05033e;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    background-color: #004085;
+    transform: translateY(0);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+}

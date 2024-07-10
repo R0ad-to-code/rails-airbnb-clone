@@ -25,12 +25,12 @@
         <%= @flat.description %>
       </p>
     </div>
-    <div>
+    <div class="new-flat-form">
       <h4  id="book_module">Select a date and book</h4>
       <%= simple_form_for [@flat, @booking] do |f| %>
         <%= f.input :start_date, as: :date %>
         <%= f.input :end_date, as: :date %>
-        <%= f.submit "Book now", class: "btn btn-success text-light" %>
+        <%= f.submit "Book now", class: "app-button" %>
       <% end %>
     </div>
     </div>
