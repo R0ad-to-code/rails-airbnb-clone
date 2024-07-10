@@ -1,1 +1,15 @@
-<p>Create a new flat</p>
+<div class="new-flat-form">
+
+  <h1>New flat</h1>
+
+  <%= simple_form_for @flat, url: flats_path, method: :post do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :price, label: "Price per night (in €)" %>
+    <%= f.input :description %>
+    <%= f.input :poster_url %>
+
+    <%= f.submit "Create Flat", class: "app-button" %>
+  <% end %>
+
+</div>

@@ -1,0 +1,13 @@
+<div class="container my-4">
+  <h3 class="text-center my-4"><%= @user.email %>, here are all your flats: </h3>
+
+  <% @flats.each do |flat| %>
+    <div class="card-product">
+      <img src="<%= flat.poster_url %>" />
+      <div class="card-product-infos">
+        <h2><%= flat.name %></h2>
+        <p><%= flat.description %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
