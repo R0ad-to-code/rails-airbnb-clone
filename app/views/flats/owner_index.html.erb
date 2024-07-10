@@ -1,26 +1,13 @@
-<p>this is the owner index</p>
-<p><%= current_user.email %></p>
-<p>Owner: <%= current_user.owner? %></p>
-<% @flats.each do |flat| %>
-  <p><%= flat.name %></p>
-<% end %>
-
-
-<%# CHANGE THIS CARD TO STH BETTER %>
 <div class="container my-4">
-<h1 class="text-center my-4">Welcome <%= @user.email %></h1>
+  <h3 class="text-center my-4"><%= @user.email %>, here are all your flats: </h3>
 
-<h2>Here are your Flats</h2>
-<div class="row ">
-  <%  @flats.each do |flat| %>
-    <div class="card-trip col-sm-11 col-md-6 col-lg-4">
+  <% @flats.each do |flat| %>
+    <div class="card-product">
       <img src="<%= flat.poster_url %>" />
-      <div class="card-trip-infos mb-3">
-          <h2><%= flat.name %></h2>
-          <p><%= flat.description %></p>
+      <div class="card-product-infos">
+        <h2><%= flat.name %></h2>
+        <p><%= flat.description %></p>
       </div>
     </div>
   <% end %>
-</div>
-
 </div>
