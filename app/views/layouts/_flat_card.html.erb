@@ -1,6 +1,7 @@
 <div class="mb-3 flat-card">
   <%= link_to flat_path(flat), class: "card-link" do %>
-    <%= image_tag(flat.poster_url, alt: "Flat image", class: "card-img-top") %>
+    <%= image_tag(flat.poster_url, alt: "Flat image", class: "card-img-top") unless flat.poster_url.blank? %>
+    <%= image_tag("https://picsum.photos/2000", alt: "Default flat image", class: "card-img-top") if flat.poster_url.blank? %>
     <div class="card-body">
       <h5 class="card-title"><%= flat.name %></h5>
       <p class="card-text mb-1"><%= flat.address %></p>
