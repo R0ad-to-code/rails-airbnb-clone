@@ -23,14 +23,19 @@ class FlatsController < ApplicationController
   def owner_index
     @user = current_user
     @flats = current_user.flats
-  #if the current user is an owner
-  #get all the flats of this owner and display them in a list
   end
 
 
   def show
     @flat = Flat.find(params[:id])
     @booking = Booking.new
+    if @flat.geocoded?
+      @markers = [{
+        lat: @flat.latitude,
+        lng: @flat.longitude
+      }
+      ]
+    end
   end
 
   def flat_params
