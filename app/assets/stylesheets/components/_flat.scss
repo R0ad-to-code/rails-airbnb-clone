@@ -1,0 +1,39 @@
+.flat-card-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flat {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-gap: 30px;
+  margin: 30px;
+  flex-grow: 1;
+}
+
+.flat-img-left {
+  border-radius: 5px;
+  width: 40vw;
+}
+
+.flat-body {
+  margin: 0px;
+  padding: 5px 0;
+  line-height: 24px;
+  font-size: 14px;
+  color: rgb(59, 55, 55);
+}
+
+.flat-description {
+  margin: 0px;
+}
+
+@media(max-width: 768px) {
+  .flat {
+    grid-template-columns: 1fr;
+  }
+  .flat-img-left {
+    border-radius: 5px;
+    width: 80vw;
+  }
+}
