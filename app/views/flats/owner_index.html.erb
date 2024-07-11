@@ -9,7 +9,7 @@
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
       </div>
       <img src="<%= flat.poster_url %>" />
-      <div class="card-product-infos">
+      <div class="card-product-infos flex-grow-1">
     <p><%= link_to "See your flat", flat_path(flat.id), class: "nav-link" %></p>
         <h2><%= flat.name %></h2>
         <p><%= flat.description %></p>
