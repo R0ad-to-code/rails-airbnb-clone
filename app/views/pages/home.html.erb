@@ -1,10 +1,27 @@
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3 ">
+    <%= form_with url: root_path, method: :get, class: "d-flex " do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control card-img-top",
+            placeholder: "Search for a flat"
+        %>
+      <%= submit_tag "Search", name: "", class: "app-button" %>
+    <% end %>
+  </div>
+</div>
+
 <div class="home-card-container">
-<div class="row">
-<% @flats = Flat.all %>
-  <% @flats.each do |flat| %>
-    <div class="col-lg-2 col-md-4 mb-3">
-      <%= render partial: "layouts/flat_card", locals: { flat: flat } %>
-    </div>
-  <% end %>
+  <div class="row">
+      <% if @flats.any? %>
+        <% @flats.each do |flat| %>
+        <div class="col-lg-2 col-md-4 mb-3">
+            <%= render partial: "layouts/flat_card", locals: { flat: flat } %>
+        </div>
+          <% end %>
+        <% else %>
+          <em>Sorry, no flats found.</em>
+        <% end %>
+  </div>
 </div>
 </div>
