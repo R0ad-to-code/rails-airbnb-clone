@@ -28,6 +28,7 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
+    @reviews = @flat.reviews
     @booking = Booking.new
     if @flat.geocoded?
       @markers = [{
