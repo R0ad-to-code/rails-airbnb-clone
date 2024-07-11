@@ -25,8 +25,12 @@
         <div class="new-flat-form d-none" data-toggle-target="togglableElement">
           <h4  id="book_module">Select a date and book</h4>
           <%= simple_form_for [@flat, @booking] do |f| %>
-            <%= f.input :start_date, as: :date %>
-            <%= f.input :end_date, as: :date %>
+            <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+            <%= f.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
             <%= f.submit "Book now", class: "app-button" %>
           <% end %>
         </div>
