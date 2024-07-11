@@ -9,7 +9,9 @@
   <% else %>
     <div class="cards px-3 my-3">
       <%  @bookings.each do |booking| %>
-        <%= render "user_booking", booking: booking %>
+        <div class="col-md-2 mb-3">
+          <%= render "user_booking", booking: booking %>
+        </div>
       <% end %>
     </div>
   <% end %>
