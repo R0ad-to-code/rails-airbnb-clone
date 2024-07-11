@@ -1,13 +1,16 @@
 <div class="container my-4">
   <h3 class="text-center my-4"><% if @user.name.nil? %>Here <% else %><%= @user.name %>, here<% end %> are all your flats: </h3>
 
-  <% @flats.each do |flat| %>
-    <div class="card-product">
+<div>
+ <% @flats.each do |flat| %>
+    <div class="card-product m-2">
       <img src="<%= flat.poster_url %>" />
       <div class="card-product-infos">
+    <p><%= link_to "See your flat", flat_path(flat.id), class: "nav-link" %></p>
         <h2><%= flat.name %></h2>
         <p><%= flat.description %></p>
       </div>
     </div>
   <% end %>
+</div>
 </div>
