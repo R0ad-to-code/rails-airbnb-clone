@@ -48,16 +48,19 @@
 <div class="mb-5">
   <h2>Reviews</h2>
   <% if @reviews.any? %>
-  <ul>
-    <% @reviews.each do |review| %>
-      <li>
-        <strong><%= review.user.email %>:</strong> <%= review.content %> (Rating: <%= review.rating %>)
-      </li>
-    <% end %>
-  </ul>
+    <ul>
+      <% @reviews.each do |review| %>
+        <li>
+          <strong><%= review.user.email %>:</strong> <%= review.content %> (Rating: <%= review.rating %>)
+        </li>
+      <% end %>
+    </ul>
   <% else %>
-  <p>No reviews yet.</p>
+    <p>No reviews yet.</p>
   <% end %>
+
+  <%= render "reviews/review_form", flat: @flat, review: @review %>
+
 </div>
 
 
