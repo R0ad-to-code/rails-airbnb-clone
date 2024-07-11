@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.flat = Flat.find(params[:flat_id])
     @booking.user = current_user
-    redirect_to user_bookings_path, notice: 'Booking was successfully created.' if @booking.save
+    redirect_to user_bookings_path, notice: 'Booking was successfully created.' if @booking.save!
   end
 
   def update

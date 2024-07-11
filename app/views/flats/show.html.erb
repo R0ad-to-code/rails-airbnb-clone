@@ -19,7 +19,7 @@
         <br>
       </div>
       <div data-controller="toggle">
-        <a class="app-button" href="#book_module" data-action="click->toggle#fire">
+        <a class="app-button" data-action="click->toggle#fire">
           📅 Choose a date
         </a>
         <div class="new-flat-form d-none" data-toggle-target="togglableElement">
@@ -27,10 +27,10 @@
           <%= simple_form_for [@flat, @booking] do |f| %>
             <%= f.input :start_date,
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "flatpickr", flatpickr_disable_days_of_week: [5,6]} } %>
             <%= f.input :end_date,
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "flatpickr", flatpickr_disable_days_of_week: [5,6] } } %>
             <%= f.submit "Book now", class: "app-button" %>
           <% end %>
         </div>
