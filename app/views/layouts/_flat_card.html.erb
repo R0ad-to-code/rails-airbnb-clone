@@ -5,7 +5,7 @@
     <div class="card-body">
       <h5 class="card-title"><%= flat.name %></h5>
       <p class="card-text mb-1"><%= flat.address %></p>
-      <p class="description"><%= "#{flat.description.truncate(45, separator: ' ')}" %></p>
+      <p class="description"><%= "#{flat.description.truncate(35, separator: ' ')}" %></p>
       <span class="price"><b>€<%= flat.price %></b>/night</span>
     </div>
   <% end %>
