@@ -37,9 +37,9 @@ class FlatsController < ApplicationController
         lat: @flat.latitude,
         lng: @flat.longitude
       }]
-    end
+       end
   end
-
+  
   def create_review
     @review = @flat.reviews.new(review_params)
     @review.user = current_user
@@ -50,6 +50,12 @@ class FlatsController < ApplicationController
       @reviews = @flat.reviews
       render :show
     end
+  end
+
+  def destroy
+    @flat = Flat.find(params[:id])
+    @flat.destroy
+    redirect_to flats_path
   end
 
   private

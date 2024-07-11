@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :flats, only: [:show, :new, :create] do
+  resources :flats, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:create]
     resources :reviews, only: [:create]
   end
 
-  resources :bookings, only: [:update]
+  resources :bookings, only: [:update, :destroy]
 
   get "bookings", to: "bookings#index", as: "user_bookings"
   get "flats", to: "flats#owner_index", as: "owner_flats"
