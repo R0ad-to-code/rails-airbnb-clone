@@ -1,6 +1,6 @@
 <% bookings = Booking.where(flat_id: my_flat.id) %>
 <div class="bookings-block p-4 bg-light my-3">
-<h4>Your flat: "<%= my_flat.name %>"</h4>
+<h4 class="text-center my-3">Your flat: "<%= my_flat.name %>"</h4>
   <% if bookings.empty? %>
     <h5 class="text-center mt-3 text-warning">You have no booking for this flat !</h5>
   <% else %>

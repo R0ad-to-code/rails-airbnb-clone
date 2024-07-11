@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
-  resources :bookings, only: [:update]
+  resources :bookings, only: [:update, :destroy]
 
   get "bookings", to: "bookings#index", as: "user_bookings"
   get "flats", to: "flats#owner_index", as: "owner_flats"
