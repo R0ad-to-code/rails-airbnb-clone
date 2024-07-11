@@ -12,17 +12,28 @@
         <br>
         <h2><%= @flat.name %></h2>
         <p><%= @flat.address %></p>
-        <h3>€ <%= @flat.price %></h3>
-        <p>/ night </p>
+        <h3><strong> € <%= @flat.price %></strong> / night</h3>
         <p>
           <%= @flat.description %>
         </p>
         <br>
       </div>
-      <div>
-        <a class="app-button" href="#book_module">
+      <div data-controller="toggle">
+        <a class="app-button" href="#book_module" data-action="click->toggle#fire">
           📅 Choose a date
         </a>
+        <div class="new-flat-form d-none" data-toggle-target="togglableElement">
+          <h4  id="book_module">Select a date and book</h4>
+          <%= simple_form_for [@flat, @booking] do |f| %>
+            <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+            <%= f.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+            <%= f.submit "Book now", class: "app-button" %>
+          <% end %>
+        </div>
       </div>
       <br>
       <div>
@@ -30,14 +41,6 @@
           🩶 Add to wishlist
         </a>
       </div>
-    </div>
-    <div class="new-flat-form">
-      <h4  id="book_module">Select a date and book</h4>
-      <%= simple_form_for [@flat, @booking] do |f| %>
-        <%= f.input :start_date, as: :date %>
-        <%= f.input :end_date, as: :date %>
-        <%= f.submit "Book now", class: "app-button" %>
-      <% end %>
     </div>
     </div>
 </div>
