@@ -1,8 +1,10 @@
-<div class="home-card-container d-flex">
+<div class="home-card-container">
+<div class="row">
 <% @flats = Flat.all %>
   <% @flats.each do |flat| %>
-    <div class="col-md-2 mb-3">
+    <div class="col-lg-2 col-md-4 mb-3">
       <%= render partial: "layouts/flat_card", locals: { flat: flat } %>
     </div>
   <% end %>
+</div>
 </div>
