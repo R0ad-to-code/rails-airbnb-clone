@@ -1,9 +1,15 @@
 .home-card-container {
+  display: flex;
   flex-wrap: wrap;
+  // justify-content: flex-start;
   justify-content: space-around;
-  gap: 16px;
-  padding: 20px 55px;
+  gap: 10px;
+  padding: 20px 40px;
 }
+
+// .col-md-2 {
+//   margin: 20px;
+// }
 
 .card-img-top {
   border-radius: 5px;
@@ -15,6 +21,7 @@
   line-height: 24px;
   font-size: 14px;
   color: $text-color;
+  padding: 12px;
 }
 
 .description {
@@ -23,4 +30,12 @@
 
 .card-link {
   text-decoration: none;
+}
+
+.flat-card {
+  box-shadow: $app-box-shadow;
+  border-radius: 5px;
+  min-width: 300px;
+  min-height: 450px;
+  background-color: white;
 }
