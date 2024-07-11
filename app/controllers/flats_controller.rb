@@ -34,9 +34,14 @@ class FlatsController < ApplicationController
       @markers = [{
         lat: @flat.latitude,
         lng: @flat.longitude
-      }
-      ]
+      }]
     end
+  end
+
+  def destroy
+    @flat = Flat.find(params[:id])
+    @flat.destroy
+    redirect_to flats_path
   end
 
   def flat_params
