@@ -13,9 +13,9 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
-
     if @flat.save
       flash[:success] = "Flat created successfully!"
+      current_user.update_attribute(:owner?, true) if current_user.owner? == false
       redirect_to root_path
     else
       render :new
@@ -39,7 +39,7 @@ class FlatsController < ApplicationController
       }]
        end
   end
-  
+
   def create_review
     @review = @flat.reviews.new(review_params)
     @review.user = current_user
