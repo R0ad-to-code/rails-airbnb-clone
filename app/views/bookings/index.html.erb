@@ -7,9 +7,9 @@
       <h5 class="text-center mt-3 text-warning">You have nothing booked for your trips yet</h5>
     </div>
   <% else %>
-    <div class="cards px-3 my-3">
+    <div class="home-card-container justify-content-evenly">
       <%  @bookings.each do |booking| %>
-        <div class="col-md-2 mb-3">
+        <div class="col-md-4 col-lg-3 mb-3">
           <%= render "user_booking", booking: booking %>
         </div>
       <% end %>

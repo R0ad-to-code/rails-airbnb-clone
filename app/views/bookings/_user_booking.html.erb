@@ -1,6 +1,9 @@
 <% flat = Flat.find(booking.flat_id)%>
 
-<div class="flat-card mb-3">
+<div class="flat-card mb-3 position-relative">
+  <div class="cancel-button-top">
+    <%= link_to ("<i class='fa-solid fa-xmark fa-xl' style='color: #8a0000;'></i>").html_safe, booking_path(booking.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure to cancel your booking?"} %>
+  </div>
   <%= image_tag(flat.poster_url, alt: "Flat image", class: "card-img-top") unless flat.poster_url.blank? %>
   <%= image_tag("https://th.bing.com/th/id/OIG4.tPvwVrEHahLe6Kjf4I0p?w=1024&h=1024&rs=1&pid=ImgDetMain", alt: "Default flat image", class: "card-img-top") if flat.poster_url.blank? %>
   <div class="card-body">
@@ -8,6 +11,8 @@
     <p class="card-text mb-1">Status : <%= booking.status %></p>
     <p class="card-text mb-1"><b>Check-in : <%= booking.start_date.strftime('%a, %e of %B %Y') %><br>Check-out : <%= booking.end_date.strftime('%a, %e of %B %Y') %></b></p>
     <p class="description"><%= flat.description %></p>
-    <%= link_to "See the flat", flat_path(flat) %>
+    <div class="d-flex justify-content-between">
+      <%= link_to "See the flat", flat_path(flat) %>
+    </div>
   </div>
 </div>
