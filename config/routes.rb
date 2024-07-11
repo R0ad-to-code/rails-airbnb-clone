@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :flats, only: [:index, :show, :new, :create, :destroy] do
     resources :bookings, only: [:create]
+    resources :reviews, only: [:create]
   end
 
   resources :bookings, only: [:update, :destroy]
