@@ -35,7 +35,20 @@
 .flat-card {
   box-shadow: $app-box-shadow;
   border-radius: 5px;
-  min-width: 300px;
-  min-height: 450px;
   background-color: white;
+
+  // @media (max-width: 768px) {
+  //   /* Styles for smaller screens (e.g., mobile) */
+  //   width: 80vw
+  // }
+
+  // @media (min-width: 768px) and (max-width: 1024px) {
+  //   /* Styles for medium screens (e.g., tablets) */
+  //   width: 30vw
+  // }
+
+  @media (min-width: 1024px) {
+    /* Styles for large screens (e.g., desktops) */
+    width: 17.5vw
+  }
 }
