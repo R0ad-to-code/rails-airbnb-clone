@@ -3,7 +3,7 @@
 
 <div>
  <% @flats.each do |flat| %>
-    <div class="card-product m-2 position-relative">
+    <div class="card-product m-2 position-relative mx-auto"  style="max-width:700px;">
       <div class="cancel-button-top">
         <%= link_to ("<i class='fa-solid fa-xmark fa-xl' style='color: #8a0000;'></i>").html_safe, flat_path(flat),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>

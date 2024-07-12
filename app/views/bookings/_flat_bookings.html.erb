@@ -1,6 +1,6 @@
 <% user = User.find(booking.user_id) %>
 
-<div class="card-product m-2 border mx-auto" style="max-width:600px;">
+<div class="card-product m-2 mx-auto" style="max-width:600px;">
   <img src="<%= my_flat.poster_url %>" />
   <div class="card-product-infos flex-grow-1">
     <p><% if user.name.nil? %>A user<% else %><%= user.name.capitalize %><% end %> wants to book your flat during <%= (booking.end_date - booking.start_date).to_i %> day(s):</p>
