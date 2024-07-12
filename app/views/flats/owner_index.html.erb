@@ -1,3 +1,8 @@
+<div class="back-button-container">
+  <%= link_to :back do %>
+    <%= image_tag "Back.png" %>
+  <% end %></div>
+<div class="flat-card-container">
 <div class="container my-4">
   <h3 class="text-center my-4"><% if @user.name.nil? %>Here <% else %><%= @user.name %>, here<% end %> are all your flats: </h3>
 
