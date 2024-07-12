@@ -1,9 +1,20 @@
 .new-flat-form {
   // display: grid;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 500ms, opacity 200ms;
+}
+
+.new-flat-form.expand {
+
+  max-height: 300px;
+  margin: 18px auto;
   place-items: center;
   width: 100%;
-  margin: 18px auto;
   box-shadow: $app-box-shadow;
   padding: 25px;
   border-radius: 8px;
+  opacity: 1;
+
 }
