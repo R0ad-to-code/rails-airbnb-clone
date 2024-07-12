@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+=======
+.new-flat-form {
+  // display: grid;
+  overflow: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 500ms, opacity 200ms;
+}
+.new-flat-form.expand {
+  max-height: 300px;
+  margin: 18px auto;
+  place-items: center;
+  width: 100%;
+  box-shadow: $app-box-shadow;
+  padding: 25px;
+  border-radius: 8px;
+  opacity: 1;
+}
+>>>>>>> 4639094cf49f16504c81f9ff13056a0202c00440

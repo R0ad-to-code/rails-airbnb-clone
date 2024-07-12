@@ -15,7 +15,7 @@
   <div class="row">
       <% if @flats.any? %>
         <% @flats.each do |flat| %>
-        <div class="col-lg-2 col-md-4 mb-3">
+        <div class="col-lg-2 col-md-4 mb-3 max-dimensions">
             <%= render partial: "layouts/flat_card", locals: { flat: flat } %>
         </div>
           <% end %>
