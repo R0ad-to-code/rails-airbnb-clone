@@ -35,5 +35,10 @@
   box-shadow: $app-box-shadow;
   border-radius: 5px;
   background-color: white;
-
+  width: 96%;
+  height: 99%;
+}
+.max-dimensions{
+  max-height: fit-content;
+  // max-width: ;
 }
