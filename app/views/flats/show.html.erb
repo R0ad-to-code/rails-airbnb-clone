@@ -19,7 +19,7 @@
         <br>
       </div>
       <div data-controller="toggle">
-        <a class="app-button" href="#book_module" data-action="click->toggle#fire">
+        <a class="app-button" data-action="click->toggle#fire">
           📅 Choose a date
         </a>
         <div class="new-flat-form d-none" data-toggle-target="togglableElement">
@@ -27,10 +27,10 @@
           <%= simple_form_for [@flat, @booking] do |f| %>
             <%= f.input :start_date,
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "flatpickr" } } %>
             <%= f.input :end_date,
             as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "flatpickr" } } %>
             <%= f.submit "Book now", class: "app-button" %>
           <% end %>
         </div>
@@ -42,9 +42,34 @@
         </a>
       </div>
       <br>
-       
+
     </div>
     </div>
+</div>
+
+<div class="container mb-3">
+  <h2 class="text-center mb-4">Reviews</h2>
+  <div class="row">
+    <div class="col-md-7 reviews-section">
+      <% if @reviews.any? %>
+        <% @reviews.each do |review| %>
+          <div class="list-group-item">
+            <div class="d-flex justify-content-between">
+              <h5 class="mb-1"><%= review.user.name %><span style="font-size:1rem"> - <%= review.user.email %></span></h5>
+              <b><p>Rating: <%= review.rating %> / 5</p></b>
+            </div>
+            <p class="mb-1"><%= review.content %></p>
+            <small class="text-muted">Reviewed on <%= review.created_at.strftime("%B %d, %Y") %></small>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="text-muted">No reviews yet.</p>
+      <% end %>
+    </div>
+    <div class="col-md-5">
+      <%= render "reviews/review_form", flat: @flat, review: @review %>
+    </div>
+  </div>
 </div>
 
 

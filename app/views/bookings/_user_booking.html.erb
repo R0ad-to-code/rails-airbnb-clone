@@ -10,7 +10,7 @@
     <h5 class="card-title"><%= flat.name %></h5>
     <p class="card-text mb-1">Status : <%= booking.status %></p>
     <p class="card-text mb-1"><b>Check-in : <%= booking.start_date.strftime('%a, %e of %B %Y') %><br>Check-out : <%= booking.end_date.strftime('%a, %e of %B %Y') %></b></p>
-    <p class="description"><%= flat.description %></p>
+    <p class="description"><%= flat.description.truncate(35, separator: ' ') %></p>
     <div class="d-flex justify-content-between">
       <%= link_to "See the flat", flat_path(flat) %>
     </div>
