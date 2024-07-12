@@ -1,20 +1,33 @@
 <div class="container my-4">
-  <h3 class="text-center my-4"><% if @user.name.nil? %>Here <% else %><%= @user.name %>, here<% end %> are all your flats: </h3>
+  <h3 class="text-center my-2"><% if @user.name.nil? %>Here <% else %><%= @user.name %>, here<% end %> are all your flats:</h3>
 
-<div>
- <% @flats.each do |flat| %>
-    <div class="card-product m-2 position-relative mx-auto"  style="max-width:700px;">
-      <div class="cancel-button-top">
-        <%= link_to ("<i class='fa-solid fa-xmark fa-xl' style='color: #8a0000;'></i>").html_safe, flat_path(flat),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      </div>
-      <img src="<%= flat.poster_url %>" />
-      <div class="card-product-infos flex-grow-1">
-    <p><%= link_to "See your flat", flat_path(flat.id), class: "nav-link" %></p>
-        <h2><%= flat.name %></h2>
-        <p><%= flat.description %></p>
+  <% if @flats.any? %>
+    <div class="row">
+      <% @flats.each do |flat| %>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="h-100 flat-card">
+            <div class="position-relative mx-auto">
+              <img src="<%= flat.poster_url %>" class="card-img-top" alt="<%= flat.name %>">
+              <div class="cancel-button-top position-absolute top-0 end-0 m-2">
+                <%= link_to ("<i class='fa-solid fa-xmark fa-xl' style='color: #8a0000;'></i>").html_safe, flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              </div>
+            </div>
+            <div class="card-body d-flex flex-column">
+              <p><%= link_to "See your flat", flat_path(flat.id), class: "app-button" %></p>
+              <h5 class="card-title pb-2"><%= flat.name %></h5>
+              <p class="card-text"><%= flat.description %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="d-flex flex-column align-items-center mt-5">
+      <i class="fas fa-home fa-2x text-muted"></i>
+      <p>You don't have any flats listed yet.</p>
+      <div class="alert alert-info text-center mt-3" role="alert">
+        You don't have any flats listed yet. <%= link_to "Create a new flat", new_flat_path, class: "alert-link" %>
       </div>
     </div>
   <% end %>
-</div>
 </div>
