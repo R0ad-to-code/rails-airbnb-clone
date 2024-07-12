@@ -1,5 +1,5 @@
 <div class="container my-5 mx-auto pb-5">
-<h1 class="text-center my-4">Welcome <% @user.name unless @user.name.nil? %></h1>
+<h1 class="text-center my-4">Welcome <%= @user.name unless @user.name.nil? %></h1>
 <div class="my-5">
   <h2>Here are the bookings for your next trips:</h2>
   <% if @bookings.empty? %>
