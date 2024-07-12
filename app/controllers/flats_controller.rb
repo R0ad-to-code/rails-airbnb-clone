@@ -28,6 +28,7 @@ class FlatsController < ApplicationController
   end
 
   def show
+    @flat = Flat.find(params[:id])
     @reviews = @flat.reviews
     @booking = Booking.new
     @review = Review.new
@@ -37,7 +38,7 @@ class FlatsController < ApplicationController
         lat: @flat.latitude,
         lng: @flat.longitude
       }]
-       end
+    end
   end
 
   def create_review

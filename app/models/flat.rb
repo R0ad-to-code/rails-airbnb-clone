@@ -6,8 +6,8 @@ class Flat < ApplicationRecord
   pg_search_scope :search_by_address,
     against: [ :address ],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
-      }
+    tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
@@ -16,4 +16,9 @@ class Flat < ApplicationRecord
 
   validates :name, :address, :description, :price, presence: true
 
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
