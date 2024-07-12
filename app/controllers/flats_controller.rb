@@ -38,7 +38,7 @@ class FlatsController < ApplicationController
         lat: @flat.latitude,
         lng: @flat.longitude
       }]
-       end
+    end
   end
 
   def create_review
