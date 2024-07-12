@@ -27,10 +27,10 @@
           <%= simple_form_for [@flat, @booking] do |f| %>
             <%= f.input :start_date,
             as: :string,
-            input_html: { data: { controller: "flatpickr", flatpickr_disable_days_of_week: [5,6]} } %>
+            input_html: { data: { controller: "flatpickr" } } %>
             <%= f.input :end_date,
             as: :string,
-            input_html: { data: { controller: "flatpickr", flatpickr_disable_days_of_week: [5,6] } } %>
+            input_html: { data: { controller: "flatpickr" } } %>
             <%= f.submit "Book now", class: "app-button" %>
           <% end %>
         </div>

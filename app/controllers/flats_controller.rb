@@ -28,12 +28,8 @@ class FlatsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
     @flat = Flat.find(params[:id])
-    @existing_bookings = @flat.bookings
-=======
     @reviews = @flat.reviews
->>>>>>> e29fe2b381f314e0968b3cab14830d5e15d68d57
     @booking = Booking.new
     @review = Review.new
 
