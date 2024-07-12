@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :set_flat, only: [:show, :create_review]
+  before_action :set_flat, only: [:show]
 
   def index
     @flats = Flat.all
@@ -41,20 +41,6 @@ class FlatsController < ApplicationController
     end
   end
 
-  def create_review
-    raise
-    @review = @flat.reviews.new(review_params)
-    @review.user = current_user
-    raise
-
-    if @review.save
-      redirect_to @flat, notice: 'Review was successfully created.'
-    else
-      @reviews = @flat.reviews
-      render :show
-    end
-  end
-
   def destroy
     @flat = Flat.find(params[:id])
     @flat.destroy
@@ -69,9 +55,5 @@ class FlatsController < ApplicationController
 
   def set_flat
     @flat = Flat.find(params[:id])
-  end
-
-  def review_params
-    params.require(:review).permit(:content, :rating)
   end
 end
