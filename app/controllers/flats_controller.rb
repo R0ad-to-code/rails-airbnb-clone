@@ -41,8 +41,10 @@ class FlatsController < ApplicationController
   end
 
   def create_review
+    raise
     @review = @flat.reviews.new(review_params)
     @review.user = current_user
+    raise
 
     if @review.save
       redirect_to @flat, notice: 'Review was successfully created.'
