@@ -3,9 +3,13 @@
 
 <div>
  <% @flats.each do |flat| %>
-    <div class="card-product m-2">
+    <div class="card-product m-2 position-relative">
+      <div class="cancel-button-top">
+        <%= link_to ("<i class='fa-solid fa-xmark fa-xl' style='color: #8a0000;'></i>").html_safe, flat_path(flat),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
       <img src="<%= flat.poster_url %>" />
-      <div class="card-product-infos">
+      <div class="card-product-infos flex-grow-1">
     <p><%= link_to "See your flat", flat_path(flat.id), class: "nav-link" %></p>
         <h2><%= flat.name %></h2>
         <p><%= flat.description %></p>

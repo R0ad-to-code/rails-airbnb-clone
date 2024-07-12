@@ -8,11 +8,16 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-user1 = User.create!(email: "test1@email.com", password: "test1@email.com", owner?: true)
-user2 = User.create!(email: "test2@email.com", password: "test2@email.com", owner?: true)
-user3 = User.create!(email: "test3@email.com", password: "test3@email.com", owner?: false)
-user4 = User.create!(email: "test4@email.com", password: "test4@email.com", owner?: false)
-user5 = User.create!(email: "test5@email.com", password: "test5@email.com", owner?: true)
+Booking.destroy_all
+Review.destroy_all
+Flat.destroy_all
+User.destroy_all
+
+user1 = User.create!(email: "test1@email.com", password: "test1@email.com", owner?: true, name: "Carlors")
+user2 = User.create!(email: "test2@email.com", password: "test2@email.com", owner?: true, name: "Carlors")
+user3 = User.create!(email: "test3@email.com", password: "test3@email.com", owner?: false, name: "Carlors")
+user4 = User.create!(email: "test4@email.com", password: "test4@email.com", owner?: false, name: "Carlors")
+user5 = User.create!(email: "test5@email.com", password: "test5@email.com", owner?: true, name: "Carlors")
 
 flat1 = Flat.create!(name: "Flat in Paris", address: "Paris", price: 100, description: "Step into a beautifully furnished space adorned with tasteful decor, parquet floors, and large windows that bathe the rooms in natural light. The living area seamlessly connects to the dining space, creating an inviting atmosphere for relaxation and socializing.", user_id: user5.id, poster_url: "https://th.bing.com/th/id/OIG2.rSuFAJtHfm3nKXqj08Gd?w=1024&h=1024&rs=1&pid=ImgDetMain")
 flat2 = Flat.create!(name: "Studio in Berlin", address: "Berlin", price: 100, description: "Welcome to our spacious studio in the heart of Berlin! This charming abode offers a perfect blend of modern comfort and city life. As you step inside, you’ll be greeted by high ceilings, large windows, and original wooden floors that exude warmth and elegance.", user_id: user1.id, poster_url: "https://th.bing.com/th/id/OIG4.rv3vQDbd2wAkw2ZIbNCu?pid=ImgGn")
@@ -25,5 +30,9 @@ booking2 = Booking.create!(user_id: user1.id, flat_id: flat2.id, start_date: Dat
 booking3 = Booking.create!(user_id: user3.id, flat_id: flat4.id, start_date: Date.new(2024, 9, 1), end_date: Date.new(2024, 9, 2))
 booking4 = Booking.create!(user_id: user3.id, flat_id: flat5.id, start_date: Date.new(2024, 2, 3), end_date: Date.new(2024, 4, 4))
 booking5 = Booking.create!(user_id: user3.id, flat_id: flat5.id, start_date: Date.new(2024, 10, 10), end_date: Date.new(2024, 11, 11))
+
+Review.create!(user: User.first, flat: flat1, content: "Great place to stay!", rating: 5)
+Review.create!(user: user2, flat: flat2, content: "Nice and cozy.", rating: 4)
+Review.create!(user: user2, flat: flat2, content: "Not Nice and cozy.", rating: 1)
 
 puts "Seed successful"

@@ -1,5 +1,5 @@
 <div class="container my-5 mx-auto pb-5">
-<h1 class="text-center my-4">Welcome <% @user.name unless @user.name.nil? %></h1>
+<h1 class="text-center my-4">Welcome dear <% if @user.name.nil? %>user<% else %><%= @user.name.capitalize %><% end %></h1>
 <div class="my-5">
   <h2>Here are the bookings for your next trips:</h2>
   <% if @bookings.empty? %>
@@ -7,9 +7,11 @@
       <h5 class="text-center mt-3 text-warning">You have nothing booked for your trips yet</h5>
     </div>
   <% else %>
-    <div class="cards px-3 my-3">
+    <div class="home-card-container justify-content-evenly">
       <%  @bookings.each do |booking| %>
-        <%= render "user_booking", booking: booking %>
+        <div class="col-md-4 col-lg-3 mb-3">
+          <%= render "user_booking", booking: booking %>
+        </div>
       <% end %>
     </div>
   <% end %>

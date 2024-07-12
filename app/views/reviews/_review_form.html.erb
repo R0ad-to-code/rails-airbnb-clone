@@ -1,0 +1,7 @@
+<div class = "review-container">
+  <%= simple_form_for [flat, review], html: { class: 'd-flex flex-column justify-content-center' }  do |f| %>
+      <%= f.input :content, as: :text, input_html: { class: "form-control" } %>
+      <%= f.input :rating, as: :numeric, input_html: { min: 1, max: 5, class: "form-control" } %>
+      <%= f.submit 'Submit Review', class: "app-button", style: "width:200px"%>
+  <% end %>
+</div>
