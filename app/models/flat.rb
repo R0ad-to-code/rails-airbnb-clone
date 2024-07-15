@@ -16,9 +16,21 @@ class Flat < ApplicationRecord
 
   validates :name, :address, :description, :price, presence: true
 
-  def unavailable_dates
-    bookings.pluck(:start_date, :end_date).map do |range|
-      { from: range[0], to: range[1] }
+  def unavailable_start_dates
+    booked_days = []
+    unavailable_date_ranges = bookings.map { |b| (b.start_date...b.end_date) }
+    unavailable_date_ranges.each do |range|
+      range.each { |day| booked_days << day }
     end
+    return booked_days.uniq
+  end
+
+  def unavailable_end_dates
+    booked_days = []
+    unavailable_date_ranges = bookings.map { |b| b.start_date.next_day(1)..b.end_date }
+    unavailable_date_ranges.each do |range|
+      range.each { |day| booked_days << day }
+    end
+    return booked_days.uniq
   end
 end

@@ -18,21 +18,17 @@
         </p>
         <br>
       </div>
-      <div data-controller="toggle">
+      <div data-controller="toggle" data-contoller="flatpickr" >
         <a class="app-button" data-action="click->toggle#fire">
           📅 Choose a date
         </a>
-        <div class="new-flat-form" data-toggle-target="togglableElement">
-          <h4  id="book_module">Select a date and book</h4>
-          <%= simple_form_for [@flat, @booking] do |f| %>
-            <%= f.input :start_date,
-            as: :string,
-            input_html: { data: { controller: "flatpickr"  } } %>
-            <%= f.input :end_date,
-            as: :string,
-            input_html: { data: { controller: "flatpickr" } } %>
-            <%= f.submit "Book now", class: "app-button" %>
-          <% end %>
+        <div class="new-flat-form" data-toggle-target="togglableElement" >
+        <%= simple_form_for([@flat, @booking]) do |f| %>
+        <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", input_html: { data: { controller: "flatpickr", flatpickr_data_value: @flat.unavailable_start_dates.to_json } } %>
+        <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", input_html: { data: { controller: "flatpickr", flatpickr_data_value: @flat.unavailable_end_dates.to_json } } %>
+        <%= f.submit "Book your flat", class: "app-button" %>
+      <% end %>
+
         </div>
       </div>
       <br>
